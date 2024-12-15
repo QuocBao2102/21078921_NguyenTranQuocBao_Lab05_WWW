@@ -10,7 +10,7 @@
 <body>
 
 <!-- Thanh điều hướng -->
-<nav class="navbar navbar-light bg-light px-4">
+<nav class="navbar navbar-primary bg-primary px-4">
   <a href="/" class="navbar-brand">Home</a>
   <div>
     <a href="/login" class="btn btn-success mx-2">Đăng nhập</a>
@@ -24,7 +24,7 @@
   <form action="/jobs/search" method="get" class="mb-4">
     <div class="input-group">
       <input type="text" name="keyword" class="form-control" placeholder="Nhập từ khóa tìm kiếm">
-      <button class="btn btn-primary" type="submit">Tìm kiếm</button>
+      <button class="btn btn-success" type="submit">Tìm kiếm</button>
     </div>
   </form>
 
@@ -36,7 +36,7 @@
           <h5 class="card-title" th:text="${job.name}">Tên công việc</h5>
           <h6 class="card-subtitle mb-2 text-muted" th:text="${job.company.name}">Tên công ty</h6>
           <p class="card-text">
-            <span th:each="skill : ${job.jobSkills}" th:text="${skill.skill.skillName}" class="badge bg-primary"></span>
+            <span th:each="skill : ${job.jobSkills}" th:text="${skill.skill.skillName}" class="badge bg-success"></span>
           </p>
           <a href="#" class="btn btn-link">Xem chi tiết</a>
         </div>

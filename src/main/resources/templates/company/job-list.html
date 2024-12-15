@@ -42,10 +42,10 @@
                     <td th:text="${job.description}"></td>
                     <!-- Hiển thị kỹ năng yêu cầu -->
                     <td>
-                        <span th:each="jobSkill : ${job.jobSkills}" th:text="${jobSkill.skill.skillName}" class="badge bg-primary mx-1"></span>
+                        <span th:each="jobSkill : ${job.jobSkills}" th:text="${jobSkill.skill.skillName}" class="badge bg-success mx-1"></span>
                     </td>
                     <td>
-                        <a href="@{/jobs/details/{id}(id=${job.id})}" class="btn btn-info btn-sm">Chi Tiết</a>
+                        <a href="@{/jobs/details/{id}(id=${job.id})}" class="btn btn-primary btn-sm">Chi Tiết</a>
                         <a href="#" class="btn btn-danger btn-sm">Xóa</a>
                     </td>
                 </tr>
