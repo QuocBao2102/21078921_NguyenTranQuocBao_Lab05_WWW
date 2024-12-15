@@ -1,0 +1,64 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.3.5'
+    id 'io.spring.dependency-management' version '1.1.6'
+}
+
+group = 'vn.edu.iuh.fit.dhktpm17a'
+version = '0.0.1-SNAPSHOT'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()  // Đảm bảo kho Maven Central đã được khai báo
+}
+
+dependencies {
+    // Spring Boot Dependencies
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-web-services'
+    implementation 'org.mariadb.jdbc:mariadb-java-client:3.2.0'
+
+    // Spring Security and related dependencies
+//    implementation 'org.springframework.security:spring-security-config' // Spring Security Config
+//    implementation 'org.springframework.security:spring-security-web' // Spring Web Security
+//    implementation 'org.springframework.security:spring-security-core' // Core Security
+    implementation 'org.springframework.boot:spring-boot-starter-mail'
+    implementation 'org.springframework.boot:spring-boot-starter-mail'
+
+    // For JWT (JSON Web Token)
+    implementation("io.jsonwebtoken:jjwt:0.12.6")
+
+    // Session Management (Spring Session JDBC)
+    implementation 'org.springframework.session:spring-session-jdbc'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    // Lombok (Optional, for reducing boilerplate code)
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    // For Country Code
+    implementation 'com.neovisionaries:nv-i18n:1.29'
+    implementation 'javax.servlet:javax.servlet-api:4.0.1'
+    // For Database REST
+    implementation 'org.springframework.data:spring-data-rest-core:4.1.4'
+
+    // Testing dependencies
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.security:spring-security-test'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
